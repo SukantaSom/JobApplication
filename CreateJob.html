@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Job data</title>
+    <style>
+        h1{
+			color : green;
+		}
+        b{
+            color: red;
+        }
+        body
+        {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+	<h1>Create a new Job</h1><br>
+    <b class="cen">* fields are required</b>
+    <form action="" method="POST">
+        <label for="title">Title <b>*</b></label>
+        <input type="text" name="title" id="title" placeholder="Enter the job title..." pattern="[A-Za-z ]" required><br>
+        <label for="type">Type <b>*</b></label>
+        <select name="type" id="type"required>
+        <option value="1">Full Time</option>
+        <option value="2">Part Time</option>
+        <option value="3">Contractual</option>
+        </select><br>
+        <label for="department">Department <b>*</b></label>
+        <select name="department" id="department" required>
+            <option value="1">CSE</option>
+            <option value="2">IT</option>
+            <option value="3">ECE</option>
+            <option value="4">EE</option>
+        </select><br>
+        <label for="country">Country <b>*</b></label>
+        <select name="country" id="country" required>
+            <option value="1">India</option>
+            <option value="2">Nepal</option>
+            <option value="3">Vutan</option>
+            <option value="4">America</option>
+            <option value="5">Australia</option>
+            <option value="6">Japan</option>
+        </select><br>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" rows="5" style="width:200px; height:50px;"  pattern="[A-Za-z0-9 ]" placeholder="Provide the description..." ><br>
+        <label for="date">Opening Date <b>*</b></label>
+        <input type="date" name="date" id="date" required><br>
+        <p id="para"></p>
+
+       <button type="button" onclick="validate()">Submit</button> 
+
+    </form>
+    <script>
+        function validate()
+        {
+            let day = new Date(); 
+            let today = day.getFullYear()+'-'+(day.getMonth()+1)+'-'+day.getDate();
+            let date = document.getElementById("date").value;
+            let title = document.getElementById("title").value;
+            let description = document.getElementById("description").value;
+            if(title == '' || description == '' )
+            {
+                alert("Please fill All the fields");   
+            }
+            else
+            {
+
+                if(Date.parse(date) >= Date.parse(today))
+                {
+                    alert("Date is correct!");
+                    window.location = "apply_job.html";
+                    //document.getElementById("para").innerHTML = title;
+
+                }
+                else
+                {
+                    alert("Invalid date!");
+                }
+            }
+            //document.getElementById("para").innerHTML = title;
+
+
+            //document.getElementById("para").innerHTML = typeof today+", "+ typeof date;
+        }
+
+    </script>
+    <footer style=" bottom: 20px; text-align: center; position: absolute;  padding-bottom: 0px; color: red; ">
+        &#169;	Sukanta Som
+    </footer>
+</body>
+</html>

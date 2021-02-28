@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply For Jobs</title>
+<style>
+	h1{
+		color: green;
+	}
+    b{
+        color: red;
+        
+    }
+    body
+    {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+    }
+</style>
+
+</head>
+<body>
+    <div>
+		<h1>Apply the job</h1>
+        <b>* fields are required</b>
+        <form action="" method="POST">
+            <label for="fname">First Name <b>*</b></label>
+            <input type="text" name="fname" id="fname" pattern="[A-Za-z ]" required><br>
+            <label for="lname">Last Name <b>*</b></label>
+            <input type="text" name="lname" id="lname" pattern="[A-Za-z ]" required><br>
+            <label for="email">Email Id <b>*</b></label>
+            <input type="email" name="email" id="email" required><br>
+            <label for="ph">Phone No <b>*</b></label>
+            <input type="number" name="ph" id="ph" pattern="[0-9]" maxlength="10" required><br>
+            <label for="add">Address <b>*</b></label>
+            <input type="text" name="add" id="add" rows="5" style="width:200px; height:50px;" required><br>
+            <label for="city">City <b>*</b></label>
+            <input type="text" name="city" id="city" pattern="[A-Za-z0-9 ]" required><br>
+            <label for="state">State <b>*</b></label>
+            <input type="text" name="state" id="state" pattern="[A-Za-z ]" required><br>
+            <label for="zip">Zip Code <b>*</b></label>
+            <input type="number" name="zip" id="zip" maxlength="6" required><br>
+            <label for="country">Country <b>*</b></label>
+            <select name="country" id="country" required>
+                <option value="1">India</option>
+                <option value="2">Nepal</option>
+                <option value="3">Vutan</option>
+                <option value="4">America</option>
+                <option value="5">Australia</option>
+                <option value="6">Japan</option>
+            </select><br>
+            <label for="edu">Education Level <b>*</b></label>
+            <select name="edu" id="edu" required>
+                <option value="1">BE/BTech.</option>
+                <option value="2">ME/MTech.</option>
+            </select><br>
+            <label for="edu_type">Education Type <b>*</b></label>
+            <select name="edu_type" id="edu" required>
+                <option value="1">Full Time</option>
+                <option value="2">Online</option>
+                <option value="3">Part Time</option>
+            </select><br>
+            <label for="resume">Resume <b>*</b></label>
+            <input type="file" name="resume" id="resume" required><br>
+            <label for="cl">Cover Letter</label>
+            <input type="text" name="cl" id="cl" rows="5" style="width:200px; height:50px;" ><br>
+            <label for="app">Jobs You Want to Apply</label>
+            <select name="app[]" size="3" multiple>
+                <option value="1">Programmer Analyst</option>
+                <option value="2">Programmer Tranniee</option>
+                <option value="3">ITES</option>
+                <option value="4">Service Desk</option>
+            </select>
+            <br>
+            <input type="checkbox" name="check" id="check" onchange="emp_exp(this)">
+            <label for="check">Are You Employed</label><br>
+            
+            <div id="history" style="display: none;">
+                <label for="pe">Current Employer</label>
+                <input type="text" name="pe" id="pe"><br>
+                <label for="exp">Years of Experience</label>
+                <input type="number" name="exp" id="exp"><br>
+            </div>
+            <br>
+            <button type="submit" onclick="validate()">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validate()
+        {
+            if(document.getElementById("fname").value =='' || document.getElementById("lname").value=='' || document.getElementById("email").value=='' || document.getElementById("ph").value=='' || document.getElementById("add").value=='' || document.getElementById("city").value=='' || document.getElementById("state").value=='' || document.getElementById("zip").value=='' || document.getElementById("resume").value=='' || document.getElementById("ph").length >= 11)
+            {
+                alert("Enter All the Fields!!");
+            }
+            else
+            {
+                alert("Applied Successfuly");
+            }
+        }
+
+        function emp_exp()
+        {
+            var yess = document.getElementById("check"); 
+            var empid = document.getElementById("history");
+            var ans = "none";
+             //empid.style.display = yes?"block": "none"; 
+             if(yess.checked == true)
+             {
+                 ans = "block";
+             }
+             empid.style.display = ans;
+ 
+            
+        }
+    </script>
+
+    <footer style=" bottom: 20px; text-align: center; position: absolute;  padding-bottom: 0px; color: red; ">
+        &#169;	Sukanta Som
+    </footer>
+</body>
+</html>
